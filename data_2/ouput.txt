@@ -1,0 +1,122 @@
+A(a)ANSWER
+PS C:\Users\ub02-glab-065\Downloads\data_2> & C:\Users\ub02-glab-065\AppData\Local\Python\pythoncore-3.14-64\python.exe c:/Users/ub02-glab-065/Downloads/data_2/data_2/a.py
+Different mean similarity = 0.363433
+Same mean similarity = 0.887363
+PS C:\Users\ub02-glab-065\Downloads\data_2>
+
+
+A(b)ANSWER
+PS C:\Users\ub02-glab-065\Downloads\data_2> & C:\Users\ub02-glab-065\AppData\Local\Python\pythoncore-3.14-64\python.exe c:/Users/ub02-glab-065/Downloads/data_2/data_2/b.py
+FULL FEATURES: 37153
+
+REDUCED RESULTS
+same       = 0.885854
+different  = 0.370061
+
+Reduced dimensions = 512
+PS C:\Users\ub02-glab-065\Downloads\data_2>
+
+
+A(C) ANSWER
+PS C:\Users\ub02-glab-065\Downloads\data_2> & C:\Users\ub02-glab-065\AppData\Local\Python\pythoncore-3.14-64\python.exe c:/Users/ub02-glab-065/Downloads/data_2/data_2/c.py
+
+TOTAL NOTICES: 12000
+
+A(c) RESULTS
+==============================
+TOTAL POSSIBLE PAIRS: 71994000
+CANDIDATE PAIRS: 7090
+TRUE DUPLICATE PAIRS: 15049
+SURVIVED DUPLICATE PAIRS: 7083
+TRUE-PAIR SURVIVAL RATE: 0.4706625024918599
+PAIR REDUCTION: 0.9999015195710753
+
+PLOT SAVED:
+a_c_survival_curve.png
+
+==============================
+ERROR COST
+==============================
+False merge cost: 100
+False non-merge cost: 1
+COST RATIO: 100:1
+
+DONE
+PS C:\Users\ub02-glab-065\Downloads\data_2>
+
+
+b(d) ANSWER
+PS C:\Users\ub02-glab-065\Downloads\data_2> & C:\Users\ub02-glab-065\AppData\Local\Python\pythoncore-3.14-64\python.exe c:/Users/ub02-glab-065/Downloads/data_2/data_2/e.py
+
+TOTAL NOTICES: 12000
+LABELLED PAIRS: 900
+
+==============================
+BEFORE MITIGATION
+==============================
+CANDIDATE PAIRS: 7090
+RUNTIME SECONDS: 0.17906849999963015
+RUNTIME MINUTES: 0.002984474999993836
+LABELLED PAIRS SURVIVED: 142
+LABELLED RETRIEVAL RECALL: 0.15777777777777777
+TOP 1% NOTICE WORK SHARE: 0.05839210155148096
+
+TOP 10 NOTICES BY WORK
+notice_id  work
+  N010641     8
+  N010640     8
+  N010639     8
+  N010644     8
+  N010645     8
+  N010642     8
+  N010643     8
+  N010638     8
+  N010646     8
+  N000680     8
+
+==============================
+AFTER MITIGATION
+==============================
+MAX BLOCK SIZE: 5
+CANDIDATE PAIRS: 5746
+RUNTIME SECONDS: 0.2567017000001215
+RUNTIME MINUTES: 0.004278361666668691
+LABELLED PAIRS SURVIVED: 136
+LABELLED RETRIEVAL RECALL: 0.1511111111111111
+
+==============================
+MITIGATION PRICE
+==============================
+CANDIDATE PAIR CHANGE: -1344
+RUNTIME CHANGE SECONDS: 0.07489470000018628
+RECALL CHANGE: -0.006666666666666654
+RECALL LOSS: 0.006666666666666654
+RECALL LOSS PERCENT: 0.6666666666666654
+
+PLOT SAVED: B_e_work_distribution_before.png
+
+DONE
+PS C:\Users\ub02-glab-065\Downloads\data_2>
+
+B(d) ANSWER
+PS C:\Users\ub02-glab-065\Downloads\data_2> & C:\Users\ub02-glab-065\AppData\Local\Python\pythoncore-3.14-64\python.exe c:/Users/ub02-glab-065/Downloads/data_2/data_2/d.py
+
+================================
+B(d) RETRIEVAL ACCESS TEST
+================================
+TABLE: retrieval_blocks
+ACCESS METHOD: B-TREE INDEX
+LOOKUP KEY: 76000000_2024-03-20
+INDEXED PATH: B-TREE INDEX
+ROWS RETURNED: 1
+WALL TIME: 9.900000077323057e-05
+REJECTED ALTERNATIVE: SEQUENTIAL SCAN
+ROWS RETURNED: 1
+WALL TIME: 8.479999996779952e-05
+================================
+SCHEMA PERSISTED IN: retrieval.db
+INDEXED LOOKUP TIME: 9.900000077323057e-05
+SEQUENTIAL LOOKUP TIME: 8.479999996779952e-05
+DONE
+================================
+PS C:\Users\ub02-glab-065\Downloads\data_2>
