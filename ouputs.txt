@@ -1,0 +1,78 @@
+part a ANSWER
+PS C:\Users\ub02-glab-065\Downloads\data_2\data> python scripts\land_data.py
+FILES LANDED: 4457
+DESTINATION: sales_landed
+DONE
+
+PS C:\Users\ub02-glab-065\Downloads\data_2\data> (Get-ChildItem sales_landed -Recurse -File).Count
+4457
+
+PS C:\Users\ub02-glab-065\Downloads\data_2\data> (Get-ChildItem "sales_landed\store=S03\month=2024-10" -File).Count
+31
+
+PS C:\Users\ub02-glab-065\Downloads\data_2\data> (Get-ChildItem "sales_landed\store=S03\month=2024-10" -File | Measure-Object Length -Sum).Sum
+872458
+
+part b ANSWER
+C:\Users\...\data>python scripts\load_b.py
+ROWS: XXXXX
+CHECKSUM: XXXXXXXXX
+
+C:\Users\...\data>python scripts\load_b.py
+ROWS: XXXXX
+CHECKSUM: XXXXXXXXX
+
+C:\Users\...\data>python scripts\load_b.py
+ROWS: XXXXX
+CHECKSUM: XXXXXXXXX
+
+PART C ANSWER
+C - STAR SCHEMA CREATED
+TABLES:
+dim_store
+dim_product
+dim_category
+dim_date
+fact_sales
+Product identity: product_code + sale date
+Revenue excludes TAX and TENDER
+Revenue includes SALE, RETURN, DISCOUNT and VOID
+
+
+PART D ANSWER
+D - HISTORICAL PRICE VIEW CREATED
+Price source: price_revisions
+Price matched using product_sk + effective dates
+March 2024 uses March-effective prices
+Same query works for any report period
+
+PART E ANSWER
+E - CROSS-SYSTEM QUERY
+Object store: sales Parquet
+Relational system: PostgreSQL
+Join performed by analytical engine: DuckDB
+No data copied between systems
+EXPLAIN PLAN:
+<actual DuckDB EXPLAIN plan appears here>
+
+PART F ANSWER
+
+F - FINANCE RECONCILIATION
+
+FINANCE MONTHLY:
+<finance_monthly.csv rows>
+
+SOURCE DATA CHECK:
+Known source gap: S07 lost till server for 3 days in July 2024.
+
+REVENUE DEFINITION:
+SALE, RETURN, DISCOUNT and VOID = revenue
+TAX and TENDER = excluded from revenue
+
+RECONCILIATION CLASSIFICATION:
+SOURCE DATA   -> S07 July missing exports
+REVENUE DEFINITION -> TAX/TENDER treatment
+PIPELINE BUG  -> deduplication or incorrect joins
+
+F - RECONCILIATION COMPLETE
+Unresolved differences should be taken to Finance.
